@@ -27,7 +27,7 @@ let conexion = mysql.createConnection({
 // Conectarnos a la base de datos
 conexion.connect(function(error){
     if(error){
-        throw error
+        throw error 
 
     } else{
 
@@ -43,7 +43,6 @@ app.get('/',function(req,res){
 
 })
 
-/*
 //Todos los articulos
 app.get('/api/articulos/',function(req,res){
     conexion.query("SELECT * FROM articulos",function(error,filas){
@@ -58,8 +57,6 @@ app.get('/api/articulos/',function(req,res){
     })
 
 })
-
-*/
 
 //Solo 1 articulo
 app.get('/api/articulos/:id',function(req,res){
@@ -103,7 +100,7 @@ app.put('/api/articulos/:id',function(req,res){
     let descripcion=req.body.descripcion
     let precio= req.body.precio
     let cantidad=req.body.cantidad
-    let sql="UPDATE articulos SET description = ?, precio= ?, cantidad = ? where id = ?";
+    let sql="UPDATE articulos SET descripcion = ?, precio= ?, cantidad = ? where id = ?";
     conexion.query(sql,[descripcion,precio,cantidad,id]),
     function(error,results){
         if (error){
